@@ -54,6 +54,11 @@ input{
 	background-color: rgba(255, 255, 255, 0.75);
 	font-size: 15px;
 	font-weight: 700;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	color: white;
 }
 
 section{
@@ -70,14 +75,6 @@ section{
 
 .game-info{
 	position: relative;
-	top: -120px;
-}
-
-.game-toggle{
-	width: 300px;
-	margin-left: 10px;
-	position: relative;
-	top: -110px;
 }
 
 .game-toggle h1{
@@ -88,20 +85,20 @@ section{
 }
 
 .game-toggle div{
+	background-color: rgba(0, 0, 0, 0.35);
 	float: left;
 	width: 20%;
-	height: 70px;
-	line-height: 30px;
+	height: 50px;
+	line-height: 10px;
 	padding: 20px;
 	box-sizing: border-box;
 	margin: 0;
 	font-size: 20px;
-	background-color: rgba(0, 0, 0, 0.35);
 	cursor: pointer;
 }
 
 .game-toggle #selected{
-	background-color: rgba(0, 0, 0, 0.6)
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 #results{
@@ -115,30 +112,39 @@ section{
 }
 
 .round-info{
-	width: 26%;
-	float: left;
-	min-height: 230px;
+	box-sizing: border-box;
+	height: 90px;
 }
 
-.player-one, .player-two{
-	width: 28%;
+.round-info input{
+	font-size: 24px;
+	margin-top: -10px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background-color: transparent;
+}
+
+.player-one h1, .player-two h1{
+	background-color: rgba(0, 0, 0, 0.6);
+	line-height: 50px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+.player-one, .player-two, .newgames{
+	width: 31.3%;
+	min-height: 510px;
+	padding: 0;
 	float: left;
 }
 
 .game-info section{
-	background-color: rgba(0, 0, 0, 0.6);
-	padding-top: 35px;
+	background-color: transparent;
+	padding-top: 9px;
 	border-radius: 0px 4px 4px 4px;
 	display: none;
 }
 
 .game-info section div{
-	display: inline-block;
-	width: 18%;
-}
-
-.game-info section div input{
-	width: 140px;
+	display: block;
 }
 
 button{
@@ -146,11 +152,11 @@ button{
 	padding: 7px;
 	color: white;
 	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	display: block;
 	width: 200px;
 	cursor: pointer;
-	position: relative;
-	top: -70px;
 	font-size: 20px;
 	border-radius: 3px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
