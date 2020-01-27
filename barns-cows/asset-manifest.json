@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/barns-cows/static/css/main.392ea4a2.chunk.css",
+    "main.js": "/barns-cows/static/js/main.eeb94413.chunk.js",
+    "runtime~main.js": "/barns-cows/static/js/runtime~main.b2e48ee2.js",
+    "static/js/2.6e5426c9.chunk.js": "/barns-cows/static/js/2.6e5426c9.chunk.js",
+    "index.html": "/barns-cows/index.html",
+    "precache-manifest.00a25cc5242d5372a3b0fc2b5bae3e83.js": "/barns-cows/precache-manifest.00a25cc5242d5372a3b0fc2b5bae3e83.js",
+    "service-worker.js": "/barns-cows/service-worker.js",
+    "static/media/Tile.scss": "/barns-cows/static/media/tree.3196c8a9.svg"
+  }
+}

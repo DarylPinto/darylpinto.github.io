@@ -1,0 +1,46 @@
+@import _reset
+
+*
+	font-family: "Roboto", sans-serif
+
+body
+	height: 100vh
+	width: 100vw
+	display: flex
+	justify-content: center
+	align-items: center
+	background-color: #ffe0e6
+	overflow: hidden
+
+audio
+	opacity: 0
+	pointer-events: none
+	position: fixed
+	left: -500px
+	top: -500px
+
+button
+	display: flex
+	justify-content: center
+	align-items: center
+	background-color: #61a6ff
+	padding: 20px
+	width: 50vw 
+	height: 50vw
+	max-height: 300px
+	max-width: 300px
+	border-radius: 1000px
+	border: none
+	box-shadow: 7px 7px 0 #3a88ec
+	outline: 0
+	position: relative
+	i
+		font-size: 85px
+		color: white
+		position: relative
+		left: 12px	
+	&:active
+		position: relative
+		top: 4px
+		left: 4px
+		box-shadow: 3px 3px 0 #3a88ec	
