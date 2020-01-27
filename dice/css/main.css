@@ -1,0 +1,641 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: #2C2C2C;
+    text-align: center;
+}
+
+.clearfix{
+    clear: both;
+}
+
+#container{
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #383838;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 7px;
+}
+
+.headerInner h1{
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 205px;
+    color: rgb(166, 166, 166);
+}
+
+.headerOuter{
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+    padding-bottom: 30px;
+}
+
+.headerInner{
+    width: 475px;
+    margin: 0 auto;
+}
+
+.rollButton{
+    height: 45px;
+    width: 100px;
+    background-color: rgb(65, 176, 221);
+    border: none;
+    outline: none;
+    outline: 0;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0px 0px 8px #333;
+    margin-bottom: 20px;
+}
+
+.rollButton:active{
+    background-color: rgb(36, 126, 163);
+}
+
+.diceInput{
+    height: 25px;
+    width: 100px;
+    background-color: rgb(44, 44, 44);
+    border: none;
+    outline: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: text;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.choiceBox{ 
+    display: inline-block;
+}
+
+.choiceBox label{
+    display: block;
+    color: #CCC;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 5px;
+    font-weight: 200;
+}
+
+.presets{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.presets .presetRow{
+    float: left;
+    display: inline-block;
+    width: 50%;
+}
+
+.presets label{
+    display: block;
+    margin-bottom: 15px;
+    color: #CCC;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 5px;
+    font-weight: 200;
+}
+
+.dicePreset{
+    height: 30px;
+    width: 30px;
+    margin: 0 13px;
+    margin-bottom: 15px;
+    background-color: rgb(90, 90, 90);
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    padding: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px rgba(50, 50, 50, 0.5);
+    text-align: center;
+    display: inline-block;
+}
+
+.dicePreset:active{
+    background-color: rgb(50, 50, 50);
+}
+
+.currentPreset{
+    background-color: red;
+}
+
+#resultContainer{
+    margin-top: 50px;
+    display: block;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+
+#scrollToResult{
+    height: 0;
+    width: 0;
+    position: relative;
+}
+
+#leftSide{
+    width: 50%;
+    min-height: 270px;
+    border-right: 1px solid rgb(79, 79, 79);
+    display: inline-block;
+    -webkit-order: 1;
+    order: 1;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    padding: 0 40px;
+}
+
+#leftSide #rollingHeader{
+    padding-top: 0;
+    color: #4F4F4F;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    display: block;
+    padding-bottom: 30px;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+#leftSide #individualRolls{
+    font-size: 70px;
+    color: #8E8E8E;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+#rightSide{
+    width: 50%;
+    min-height: 270px;
+    display: inline-block;
+    -webkit-order: 2;
+    order: 2;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    padding: 0 40px;
+}
+
+#rightSide #totalHeader{
+    margin-top: 0;
+    padding-top: 0;
+    color: #4F4F4F;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    display: block;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+#rightSide #diceResult{
+    margin-top: 0;
+    padding-top: 0;
+    color: #CDCDCD;
+    font-size: 185px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+#showArchive{
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    color: #8196AE;
+    border-radius: 10px;
+    width: 160px;
+    border: 1px solid;
+    font-size: 14px;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 14px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#showArchive:hover{
+    color: #68A0E0;
+}
+
+#rollArchiveWindow{
+    background-color: #CCC;
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 90px;
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -400px; /*half the width*/
+    z-index: 4;
+}
+
+#rollArchiveWrapper{
+    width: 90%;
+    height: 75%;
+    padding-right: 30px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 80px;
+    overflow: auto;
+}
+
+#rollArchiveWrapper .lastRoll{
+    display: block;
+    text-align: left;
+}
+
+#rollArchiveWindow #close{
+    display: block;
+    transform:scale(1.25,1);
+    -webkit-transform:scale(1.25,1);
+    -moz-transform:scale(1.25,1);
+    -ms-transform:scale(1.25,1);
+    -o-transform:scale(1.25,1);
+
+    font-family: 'Roboto', sans-serif;
+    color: #777;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 100;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 23px;
+}
+
+#rollArchiveWindow #close:hover{
+    color: black;
+}
+
+.lastRoll{
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 30px;
+    color: #696969;
+}
+
+#rollArchive{
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #CCC;
+    text-align: center;
+}
+
+#rollArchive div{
+    border-bottom: 1px solid #A1A1A1;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#rollArchive div:first-child{
+    background-color: #181818;
+}
+#rollArchive div:first-child .logRollHeader{
+    color: #B6B6B6;
+}
+#rollArchive div:first-child .logRollIndividualRolls{
+    color: #969696;
+}
+#rollArchive div:first-child .logRollResult{
+    color: #FFF;
+}
+
+
+#rollArchive div:last-child{
+    border: none;
+}
+
+.logRollHeader{
+    display: block;
+    color: #333;
+    font-size: 20px;
+    width: 25%;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.logRollIndividualRolls{
+    display: block;
+    color: #545454;
+    font-size: 14px;
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.logRollResult{
+    display: block;
+    color: #000;
+    font-size: 40px;
+    width: 25%;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+#blackOut{
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#rollArchiveWrapper::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+#rollArchiveWrapper::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+#rollArchiveWrapper::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(50,50,50,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+#rollArchiveWrapper::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(80,80,80,0.4); 
+}
+
+#resultError{
+    text-align: center;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+
+#resultError h1{
+    padding: 70px;
+    padding-bottom: 15px;
+    text-transform: none;
+    color: #CDCDCD;
+    font-size: 60px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+#resultError p{
+    padding: 70px;
+    padding-top: 15px;
+    color: #7E7E7E;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 1000px) {
+    body{
+        background-color: #383838;
+    }
+
+    #container{
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #container{
+        margin-top: 120px;
+    }
+
+    .headerOuter{
+        box-shadow: none;
+        border-bottom: 1px solid rgb(79, 79, 79);
+    }
+
+    .headerOuter h1{
+        font-size: 100px;
+        margin-bottom: 30px;
+    }
+
+    .mobileHeader{
+        position: fixed;
+        background-color: #383838;
+        width: 100%;
+        top: 0;
+        left: 0;
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+        z-index: 2;
+    }
+
+    .mobileHeader div{
+        width: 100%;
+    }
+
+    .mobileHeader .choiceBox{
+        padding-top: 10px;
+        width: 24%;
+        box-sizing: border-box;
+    }
+
+    .mobileHeader input{
+        width: 60%;
+    }
+
+    .mobileHeader .rollButton{
+        font-size: 16px;
+        width: 80%;
+    }
+
+    .presets{
+        margin-top: 0;
+    }
+
+    .presets label{
+        display: none;
+    }
+
+    #resultContainer{
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+
+    #scrollToResult{
+        top: -150px;
+    }
+
+    #leftSide{
+        width: 100%;
+        min-height: 0;
+        padding-top: 60px;
+        padding-bottom: 30px;
+        border-right: none;
+        border-top: 1px solid rgb(79, 79, 79);
+        -webkit-order: 2;
+        order: 2;
+    }
+
+    #rightSide{
+        width: 100%;
+        margin-bottom: 0;
+        -webkit-order: 1;
+        order: 1;
+    }
+
+    #rollingHeader{
+        display: none;
+    }
+
+    #rollArchiveWindow{
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        margin-left: 0;
+        border-radius: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    #rollArchiveWrapper{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-top: 65px;
+    }
+
+    #rollArchiveWrapper .lastRoll{
+        text-align: center;
+    }
+
+    #rollArchive{
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .logRollIndividualRolls{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .logRollResult{
+        padding-right: 10px;
+    }
+
+    #rollArchiveWrapper span{
+        text-align: center;
+    }
+
+    .lastRoll{
+        padding-left: 5px;
+    }
+
+    #rollArchive::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    #resultError h1{
+        padding: 20px;
+    }
+
+    #resultError p{
+        padding: 40px;
+        padding-top: 20px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .presets .presetRow{
+        float: none;
+        width: 100%;
+    }
+
+    .dicePreset{
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+    }
+
+    .headerInner{
+        width: 100%;
+    }
+
+    #rightSide #diceResult{
+        font-size: 110px;
+    }
+
+    #resultError p{
+        padding: 10px;
+        font-size: 27px;
+    }
+}
